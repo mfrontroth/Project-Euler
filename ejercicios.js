@@ -130,46 +130,250 @@
 
 //Solución:
 
-// funcion va a recibir x arreglos, lo que se es que evaluarlos de a 2
-
-// el array no debria tener valores repetido, hay que borrarselos
 // deberia saber cuantos array llegan y contarlos
 // se deben trabajar de 2
+// deben estar ordenados? a priori no sería necesario
+//hacer una funcion que tome el array y me lo ordene de menor a mayr. el array no debria tener valores repetido, hay que borrarselos
+
 // no se la cantidad de elementos del array pero se que no seran vacios
 // debe haber una funcion que recorra el array y evalue con el onstoragedebe crearse el "nuevo" array para comparar con el que siga
 
+// el problema es que revisa una contra la otra pero no toma sus valores unicos
 
-
-
-let array1 = [1, 2, 3];
-let array2 = [5, 2, 1, 4];
-
-let arrayFinal = [];
-
-console.log("array1", array1);
-console.log("array2", array2);
-
+// limpia cada uno de los arreglos, luego compara uno con el otro y viceversa guardandolos en arreglos y luego los concatena
 
 function difSim(array1, array2) {
   let arrayResultante = [];
-  arrayConcat = array1.concat(array2);
-  console.log("arrayConcat: ", arrayConcat);
 
-  for (i = 0; i < arrayConcat.length; i++) {
+  for (i = 0; i < array1.length; i++) {
     flag = true;
 
-    for (j = 0; j < arrayConcat.length; j++) {
-      if ((i !== j) && (arrayConcat[i] === arrayConcat[j])) {
+    for (j = 0; j < array2.length; j++) {
+      if (array1[i] === array2[j]) {
         flag = false;
       }
     }
     if (flag) {
-      arrayResultante.push(arrayConcat[i]);
+      arrayResultante.push(array1[i]);
     }
   }
-return arrayResultante;
+  return arrayResultante;
 }
 
-arrayFinal = difSim(array1,array2);
-console.log("arrayFinal", arrayFinal);
+function limpiar(array1) {
+  let arrayResultante = [];
 
+  for (i = 0; i < array1.length; i++) {
+    flag = true;
+
+    for (j = i; j < array1.length; j++) {
+      if (i !== j && array1[i] === array1[j]) {
+        flag = false;
+      }
+    }
+    if (flag) {
+      arrayResultante.push(array1[i]);
+    }
+  }
+  return arrayResultante;
+}
+
+function limpiaYcompara(array1, array2) {
+  let arrayFinal1 = [];
+  let arrayFinal2 = [];
+
+  array1 = limpiar(array1);
+  array2 = limpiar(array2);
+  arrayFinal1 = difSim(array1, array2);
+  arrayFinal2 = difSim(array2, array1);
+
+  return arrayFinal1.concat(arrayFinal2);
+}
+
+
+function sym() {
+  let arrayFinalista = [];
+  
+
+  for (i = 0; i < arguments.length; i++) {
+    arrayFinalista = limpiaYcompara(arrayFinalista,arguments[i]);
+ 
+  }
+  return arrayFinalista;
+}
+
+let arrayFinalista2 = [];
+
+arrayFinalista2 = sym([1, 2, 3], [5, 2, 1, 4]);
+
+document.write("arrayFinalista2" + arrayFinalista2);
+
+
+// limpia cada uno de los arreglos, luego compara uno con el otro y viceversa guardandolos en arreglos y luego los concatena para 2 parametros
+
+// function difSim(array1, array2) {
+
+//   let arrayResultante = [];
+
+//   for (i = 0; i < array1.length; i++) {
+//     flag = true;
+
+//     for (j = 0; j < array2.length; j++) {
+//       if (array1[i] === array2[j]) {
+//         flag = false;
+//       }
+//     }
+//     if (flag) {
+//       arrayResultante.push(array1[i]);
+//     }
+//   }
+//   return arrayResultante;
+// }
+
+// function limpiar(array1) {
+
+//   let arrayResultante = [];
+
+//   for (i = 0; i < array1.length; i++) {
+//     flag = true;
+
+//     for (j = i; j < array1.length; j++) {
+//       if ((i !== j) && array1[i] === array1[j]) {
+//         flag = false;
+//       }
+//     }
+//     if (flag) {
+//       arrayResultante.push(array1[i]);
+//     }
+//   }
+//   return arrayResultante;
+// }
+
+// let array1 = [1, 2, 3, 1];
+// let array2 = [5, 2, 1, 4,4,1];
+
+// let arrayFinal1 = [];
+// let arrayFinal2 = [];
+// let arrayConcat = [];
+
+// console.log("array1 original", array1);
+// console.log("array2 original", array2);
+
+// array1 = limpiar(array1);
+// array2 = limpiar(array2);
+
+// console.log("array1 limpio", array1);
+// console.log("array2 limpio", array2);
+
+// arrayFinal1 = difSim(array1, array2);
+// arrayFinal2 = difSim(array2, array1);
+
+// console.log("arrayFinal1", arrayFinal1);
+// console.log("arrayFinal2", arrayFinal2);
+
+// arrayConcat = arrayFinal1.concat(arrayFinal2);
+// console.log("arrayConcat", arrayConcat);
+
+// let array1 = [1, 2, 3, 1, 1, 1, 1];
+// let array2 = [5, 2, 1, 4,4,1];
+
+// let arrayFinal1 = [];
+// let arrayFinal2 = [];
+// let arrayConcat = [];
+
+// function difSim(array1, array2) {
+//   // el orden es que aray 1 sea el mayor
+//   let arrayResultante = [];
+//   let array_flag = [];
+
+//   // if (array2.length >= array1.length) {
+//   //   array_flag = array1;
+//   //   array1 = array2;
+//   //   array2 = array_flag;
+//   // }
+
+//   for (i = 0; i < array1.length; i++) {
+//     flag = true;
+
+//     for (j = 0; j < array2.length; j++) {
+//       if (array1[i] === array2[j]) {
+//         flag = false;
+//       }
+//     }
+//     if (flag) {
+//       arrayResultante.push(array1[i]);
+//     }
+//   }
+//   return arrayResultante;
+// }
+
+// function limpiar(array1) {
+
+//   let arrayResultante = [];
+
+//   for (i = 0; i < array1.length; i++) {
+//     flag = true;
+
+//     for (j = i; j < array1.length; j++) {
+//       if ((i !== j) && array1[i] === array1[j]) {
+//         flag = false;
+//       }
+//     }
+//     if (flag) {
+//       arrayResultante.push(array1[i]);
+//     }
+//   }
+//   return arrayResultante;
+// }
+
+// console.log("array1", array1);
+// console.log("array2", array2);
+
+// array1 = limpiar(array1);
+// array2 = limpiar(array2);
+
+// console.log("array1", array1);
+// console.log("array2", array2);
+
+// arrayFinal1 = difSim(array1, array2);
+// arrayFinal2 = difSim(array2, array1);
+
+// console.log("arrayFinal1", arrayFinal1);
+// console.log("arrayFinal2", arrayFinal2);
+
+// arrayConcat = arrayFinal1.concat(arrayFinal2);
+
+// console.log("arrayConcat", arrayConcat);
+
+//los valores del array debe cada uno deben ser unicos
+
+// let array1 = [1, 2, 3];
+// let array2 = [5, 2, 1, 4];
+
+// let arrayFinal = [];
+
+// console.log("array1", array1);
+// console.log("array2", array2);
+
+// function difSim(array1, array2) {
+//   let arrayResultante = [];
+//   arrayConcat = array1.concat(array2);
+//   console.log("arrayConcat: ", arrayConcat);
+
+//   for (i = 0; i < arrayConcat.length; i++) {
+//     flag = true;
+
+//     for (j = 0; j < arrayConcat.length; j++) {
+//       if (((i !== j) && (arrayConcat[i] === arrayConcat[j]))) {
+//         flag = false;
+//       }
+//     }
+//     if (flag) {
+//       arrayResultante.push(arrayConcat[i]);
+//     }
+//   }
+// return arrayResultante;
+// }
+
+// arrayFinal = difSim(array1,array2);
+// console.log("arrayFinal", arrayFinal);
