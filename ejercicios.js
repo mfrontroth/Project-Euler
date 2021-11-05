@@ -1,6 +1,6 @@
 // Problem 1: Sum square difference
 
-// The sum of the squares of the first ten natural numbers is, 1 2  + 2 2  + ... + 10 2  = 385
+// The sum of the squares of the first ten natural numbers is, 1 2 + 2 2 + ... + 10 2 = 385
 // The square of the sum of the first ten natural numbers is, (1 + 2 + ... + 10) 2  = 55 2  = 3025
 // Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
 // Find the difference between the sum of the squares of the first n natural numbers and the square of the sum.
@@ -85,7 +85,7 @@
 //     multiplesOf3and5(numero)
 // );
 
-// //************ COMPROBACIONES ************//
+//************ COMPROBACIONES ************//
 // document.write("<br><br>" + "Comprobaciones: ", "<br>");
 // document.write(
 //   "multiplesOf3and5(10) should return 23: ",
@@ -133,7 +133,7 @@
 
 //Solución:
 // La sucesión se encuentra inicializada según lo indicado en el enunciado.
-// En caso de necesitar inicializarla con 0 (0, 1, 1, 2, 3, 5, ... ), modificar las variables de la función fiboEvenSum(num): let a = 0; let c = 1
+// En caso de necesitar inicializarla en 0 (0, 1, 1, 2, 3, 5, ... ), modificar las variables de la función fiboEvenSum(num): let a = 0; let c = 1
 
 // function fiboEvenSum(num) {
 //   let a = 1;
@@ -219,129 +219,122 @@
 
 //Solución:
 
-function comparar(array_a, array_b) {
-  let arrayComparado = [];
+// function comparar(array_a, array_b) {
+//   let arrayComparado = [];
 
-  for (let i = 0; i < array_a.length; i++) {
-    flag = true;
-    for (let j = 0; j < array_b.length; j++) {
-      if (array_a[i] === array_b[j]) {
-        flag = false;
-      }
-    }
-    if (flag) {
-      arrayComparado.push(array_a[i]);
-    }
-  }
-  return arrayComparado;
-}
+//   for (let i = 0; i < array_a.length; i++) {
+//     flag = true;
+//     for (let j = 0; j < array_b.length; j++) {
+//       if (array_a[i] === array_b[j]) {
+//         flag = false;
+//       }
+//     }
+//     if (flag) {
+//       arrayComparado.push(array_a[i]);
+//     }
+//   }
+//   return arrayComparado;
+// }
 
-function quitarElementosDuplicados(array) {
-  let arrayElementosUnicos = [];
+// function quitarElementosDuplicados(array) {
+//   let arrayElementosUnicos = [];
 
-  for (let i = 0; i < array.length; i++) {
-    flag = true;
-    for (let j = i; j < array.length; j++) {
-      if (i !== j && array[i] === array[j]) {
-        flag = false;
-      }
-    }
-    if (flag) {
-      arrayElementosUnicos.push(array[i]);
-    }
-  }
-  return arrayElementosUnicos;
-}
+//   for (let i = 0; i < array.length; i++) {
+//     flag = true;
+//     for (let j = i; j < array.length; j++) {
+//       if (i !== j && array[i] === array[j]) {
+//         flag = false;
+//       }
+//     }
+//     if (flag) {
+//       arrayElementosUnicos.push(array[i]);
+//     }
+//   }
+//   return arrayElementosUnicos;
+// }
 
-function diferenciaSimetrica(array_1, array_2) {
-  let arrayComparado_1_con_2 = [];
-  let arrayComparado_2_con_1 = [];
-  let arrayResultanteOrdenado = [];
+// function diferenciaSimetrica(array_1, array_2) {
+//   let arrayComparado_1_con_2 = [];
+//   let arrayComparado_2_con_1 = [];
+//   let arrayResultanteOrdenado = [];
 
-  //Primero se eliminan los elementos duplicados en cada arreglo por separado
-  //Luego se obtienen los elementos únicos del primer arreglo (al compararlo con el segundo) y los elementos únicos del segundo arreglo (al compararlo con el primero).
-  //Finalmente los arreglos generados se concatenan y ordenan de menor a mayor
+//   //Primero se eliminan los elementos duplicados en cada arreglo por separado
+//   //Luego se obtienen los elementos únicos del primer arreglo (al compararlo con el segundo) y los elementos únicos del segundo arreglo (al compararlo con el primero).
+//   //Finalmente los arreglos generados se concatenan y ordenan de menor a mayor
 
-  array_1 = quitarElementosDuplicados(array_1);
-  array_2 = quitarElementosDuplicados(array_2);
+//   array_1 = quitarElementosDuplicados(array_1);
+//   array_2 = quitarElementosDuplicados(array_2);
 
-  arrayComparado_1_con_2 = comparar(array_1, array_2);
-  arrayComparado_2_con_1 = comparar(array_2, array_1);
+//   arrayComparado_1_con_2 = comparar(array_1, array_2);
+//   arrayComparado_2_con_1 = comparar(array_2, array_1);
 
-  arrayResultanteOrdenado = arrayComparado_1_con_2.concat(arrayComparado_2_con_1).sort();
+//   arrayResultanteOrdenado = arrayComparado_1_con_2.concat(arrayComparado_2_con_1).sort();
 
-  return arrayResultanteOrdenado;
-}
+//   return arrayResultanteOrdenado;
+// }
 
-function sym() {
-  let arrayResultante = arguments[0];
+// function sym() {
+//   let arrayResultante = arguments[0];
 
-  for (let i = 1; i < arguments.length; i++) {
-    arrayResultante = diferenciaSimetrica(arrayResultante, arguments[i]);
-  }
-  return arrayResultante;
-}
+//   for (let i = 1; i < arguments.length; i++) {
+//     arrayResultante = diferenciaSimetrica(arrayResultante, arguments[i]);
+//   }
+//   return arrayResultante;
+// }
 
-//************ COMPROBACIONES ************//
-console.log("Problem 4: Find the Symmetric Difference");
+// //************ COMPROBACIONES ************//
+// console.log("Problem 4: Find the Symmetric Difference");
 
-let arrayResultado = [];
-console.log("Comprobaciones: ");
+// let arrayResultado = [];
+// console.log("Comprobaciones: ");
 
-arrayResultado = sym([1, 2, 3], [2, 3, 4]);
-console.log("sym([1, 2, 3], [2, 3, 4]) should return [1, 4]: ", arrayResultado);
+// arrayResultado = sym([1, 2, 3], [2, 3, 4]);
+// console.log("sym([1, 2, 3], [2, 3, 4]) should return [1, 4]: ", arrayResultado);
 
-arrayResultado = sym([1, 2, 3], [2, 3, 4], [2, 3]);
-console.log(
-  "sym([1, 2, 3], [2, 3, 4], [2, 3]) should return [1, 2, 3, 4]: ",
-  arrayResultado
-);
+// arrayResultado = sym([1, 2, 3], [2, 3, 4], [2, 3]);
+// console.log(
+//   "sym([1, 2, 3], [2, 3, 4], [2, 3]) should return [1, 2, 3, 4]: ",
+//   arrayResultado
+// );
 
-arrayResultado = sym([1, 2, 3], [5, 2, 1, 4]);
-console.log(
-  "sym([1, 2, 3], [5, 2, 1, 4]) should return [3, 4, 5]: ",
-  arrayResultado
-);
+// arrayResultado = sym([1, 2, 3], [5, 2, 1, 4]);
+// console.log(
+//   "sym([1, 2, 3], [5, 2, 1, 4]) should return [3, 4, 5]: ",
+//   arrayResultado
+// );
 
-arrayResultado = sym([1, 2, 3, 3], [5, 2, 1, 4]);
-console.log(
-  "sym([1, 2, 3, 3], [5, 2, 1, 4]) should return [3, 4, 5]: ",
-  arrayResultado
-);
+// arrayResultado = sym([1, 2, 3, 3], [5, 2, 1, 4]);
+// console.log(
+//   "sym([1, 2, 3, 3], [5, 2, 1, 4]) should return [3, 4, 5]: ",
+//   arrayResultado
+// );
 
-arrayResultado = sym([1, 2, 3], [5, 2, 1, 4, 5]);
-console.log(
-  "sym([1, 2, 3], [5, 2, 1, 4, 5]) should return [3, 4, 5]: ",
-  arrayResultado
-);
+// arrayResultado = sym([1, 2, 3], [5, 2, 1, 4, 5]);
+// console.log(
+//   "sym([1, 2, 3], [5, 2, 1, 4, 5]) should return [3, 4, 5]: ",
+//   arrayResultado
+// );
 
-arrayResultado = sym([1, 2, 5], [2, 3, 5], [3, 4, 5]);
-console.log(
-  "sym([1, 2, 5], [2, 3, 5], [3, 4, 5]) should return [1, 4, 5]: ",
-  arrayResultado
-);
+// arrayResultado = sym([1, 2, 5], [2, 3, 5], [3, 4, 5]);
+// console.log(
+//   "sym([1, 2, 5], [2, 3, 5], [3, 4, 5]) should return [1, 4, 5]: ",
+//   arrayResultado
+// );
 
-arrayResultado = sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]);
-console.log(
-  "sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]) should return [1, 4, 5].: ",
-  arrayResultado
-);
+// arrayResultado = sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]);
+// console.log(
+//   "sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]) should return [1, 4, 5].: ",
+//   arrayResultado
+// );
 
-arrayResultado = sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3]);
-console.log(
-  "sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3]) should return [2, 3, 4, 6, 7].: ",
-  arrayResultado
-);
+// arrayResultado = sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3]);
+// console.log(
+//   "sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3]) should return [2, 3, 4, 6, 7].: ",
+//   arrayResultado
+// );
 
-arrayResultado = sym(
-  [3, 3, 3, 2, 5],
-  [2, 1, 5, 7],
-  [3, 4, 6, 6],
-  [1, 2, 3],
-  [5, 3, 9, 8],
-  [1]
-);
-console.log(
-  "sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]) should return [1, 2, 4, 5, 6, 7, 8, 9].: ",
-  arrayResultado
-);
+// arrayResultado = sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]);
+// console.log(
+//   "sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]) should return [1, 2, 4, 5, 6, 7, 8, 9].: ",
+//   arrayResultado
+// );
