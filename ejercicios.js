@@ -1,13 +1,9 @@
 // Problem 1: Sum square difference
 
-// The sum of the squares of the first ten natural numbers is,
-// 1 2  + 2 2  + ... + 10 2  = 385
-// The square of the sum of the first ten natural numbers is,
-// (1 + 2 + ... + 10) 2  = 55 2  = 3025
-// Hence the difference between the sum of the squares of the first ten
-// natural numbers and the square of the sum is 3025 − 385 = 2640.
-// Find the difference between the sum of the squares of the first n natural
-// numbers and the square of the sum.
+// The sum of the squares of the first ten natural numbers is, 1 2  + 2 2  + ... + 10 2  = 385
+// The square of the sum of the first ten natural numbers is, (1 + 2 + ... + 10) 2  = 55 2  = 3025
+// Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025 − 385 = 2640.
+// Find the difference between the sum of the squares of the first n natural numbers and the square of the sum.
 // sumSquareDifference(10) should return a number.
 // sumSquareDifference(10) should return 2640.
 // sumSquareDifference(20) should return 41230.
@@ -15,29 +11,29 @@
 
 //Solución:
 
-// let numero = prompt("Ingrese un número: ", "");
-
 // function sumSquareDifference(numero) {
-//   let result_cuadrados = 0;
-//   let result_suma = 0;
+//   let sumaCuadrados = 0;
+//   let cuadradoSuma = 0;
+//   let suma = 0;
 
 //   for (let i = 0; i <= numero; i++) {
-//     result_cuadrados += i * i;
-//     result_suma += i;
+//     sumaCuadrados += i * i;
+//     suma += i;
 //   }
-//   result_suma *= result_suma;
-
-//   return result_suma - result_cuadrados;
+//   cuadradoSuma = suma * suma;
+//   return cuadradoSuma - sumaCuadrados;
 // }
 
 // document.write("Problem 1: Sum square difference" + "<br><br>");
+// let numero = prompt("Ingrese un número natural: ", "");
 // document.write(
-//   "La diferencia entre el cuadrado de la suma y la suma de los cuadrados de " +
+//   "La diferencia entre el cuadrado de la suma y la suma de sus cuadrados de los primeros " +
 //     numero +
-//     " es: " +
+//     " nùmeros naturales es: " +
 //     sumSquareDifference(numero)
 // );
 
+// //************ COMPROBACIONES ************//
 // document.write("<br><br>" + "Comprobaciones: ", "<br>");
 // document.write(
 //   "sumSquareDifference(10) should return 2640: ",
@@ -70,25 +66,26 @@
 //Solución:
 
 // function multiplesOf3and5(numero) {
-//   let resultado = 0;
+//   let sumaMultiplos = 0;
 //   for (i = 0; i < numero; i++) {
 //     if (i % 3 === 0 || i % 5 === 0) {
-//       resultado += i;
+//       sumaMultiplos += i;
 //     }
 //   }
-//   return resultado;
+//   return sumaMultiplos;
 // }
 
 // document.write("Problem 2: Multiples of 3 and 5" + "<br><br>");
-// let numero = prompt("Ingrese un número: ", "");
+// let numero = prompt("Ingrese un número natural: ", "");
 
 // document.write(
-//   "La suma de todos los múltiplos de 3 o 5 debajo de " +
+//   "La suma de todos los números naturales múltiplos de 3 o 5, menores que " +
 //     numero +
 //     " es: " +
 //     multiplesOf3and5(numero)
 // );
 
+// //************ COMPROBACIONES ************//
 // document.write("<br><br>" + "Comprobaciones: ", "<br>");
 // document.write(
 //   "multiplesOf3and5(10) should return 23: ",
@@ -135,51 +132,42 @@
 // fiboEvenSum(4000000) should return 4613732.
 
 //Solución:
+// La sucesión se encuentra inicializada según lo indicado en el enunciado.
+// En caso de necesitar inicializarla con 0 (0, 1, 1, 2, 3, 5, ... ), modificar las variables de la función fiboEvenSum(num): let a = 0; let c = 1
 
-function esPar(num) {
-  return num % 2 === 0 ? num : 0;
-}
+// function fiboEvenSum(num) {
+//   let a = 1;
+//   let b = 1;
+//   let c = 2;
+//   let suma_pares = 0;
 
-function fiboEvenSum(num) {
-  let resultado = 0;
-  let fibo1 = 0;
-  let fibo2 = 1;
-
-  for (let i = 0; i <= num; i++) {
-    if (fibo2 < num) {
-      console.log("i =", i);
-
-      console.log("fibo1 =", fibo1);
-      console.log("fibo2 =", fibo2);
-
-      fibo1 += fibo2;
-      fibo2 += fibo1;
-      console.log("fibo1 =", fibo1);
-      console.log("fibo2 =", fibo2);
-
-      console.log("resultado =", resultado);
-
-      resultado += esPar(fibo1) + esPar(fibo2);
-      console.log("resultado =", resultado);
-    }
-  }
-  return resultado;
-}
+//   while (a <= num) {
+//     if (a % 2 === 0) {
+//       suma_pares += a;
+//     }
+//     c = a + b;
+//     b = a;
+//     a = c;
+//   }
+//   return suma_pares;
+// }
 
 // document.write("Problem 3: Even Fibonacci Numbers" + "<br><br>");
-// let num = parseInt(prompt("Ingrese un número: ", ""));
+// let num = prompt("Ingrese un número natural: ", "");
 
 // document.write(
-//   "La suma de los valores pares de la sucesión de fibonacci que no exceden el valor ingresado " +
+//   "La suma de los valores pares de la sucesión de fibonacci que no exceden el valor " +
 //     num +
 //     " es: " +
 //     fiboEvenSum(num)
 // );
 
-document.write("<br><br>" + "Comprobaciones: ", "<br>");
-document.write("fiboEvenSum(8) should return 10: ", fiboEvenSum(8), "<br>");
+// //************ COMPROBACIONES ************//
+// document.write("<br><br>" + "Comprobaciones: ", "<br>");
+// document.write("fiboEvenSum(8) should return 10: ", fiboEvenSum(8), "<br>");
 
 // document.write("fiboEvenSum(10) should return 10: ", fiboEvenSum(10), "<br>");
+
 // document.write("fiboEvenSum(20) should return 10: ", fiboEvenSum(20), "<br>");
 
 // document.write("fiboEvenSum(34) should return 44: ", fiboEvenSum(34), "<br>");
@@ -192,11 +180,11 @@ document.write("fiboEvenSum(8) should return 10: ", fiboEvenSum(8), "<br>");
 //   "<br>"
 // );
 
-document.write(
-  "fiboEvenSum(100000) should return 60696: ",
-  fiboEvenSum(100000),
-  "<br>"
-);
+// document.write(
+//   "fiboEvenSum(100000) should return 60696: ",
+//   fiboEvenSum(100000),
+//   "<br>"
+// );
 
 // document.write(
 //   "fiboEvenSum(4000000) should return 4613732: ",
@@ -231,144 +219,129 @@ document.write(
 
 //Solución:
 
-// Se desconoce la cantidad de array que serán invocados, pero seguro no son vacíos
-// Se deben trabajar de 2
-// Deben estar ordenados? a priori no sería necesario
-// Cada array no debería tener valores repetido, pero pueden ser unicos
-// Dejar valores únicos por cada arreglos, luego compara se comparan mutuamente y luego los concateno
+function comparar(array_a, array_b) {
+  let arrayComparado = [];
 
-// function comparar(array_1, array_2) {
-//   let arrayResultante = [];
+  for (let i = 0; i < array_a.length; i++) {
+    flag = true;
+    for (let j = 0; j < array_b.length; j++) {
+      if (array_a[i] === array_b[j]) {
+        flag = false;
+      }
+    }
+    if (flag) {
+      arrayComparado.push(array_a[i]);
+    }
+  }
+  return arrayComparado;
+}
 
-//   for (let i = 0; i < array_1.length; i++) {
-//     flag = true;
+function quitarElementosDuplicados(array) {
+  let arrayElementosUnicos = [];
 
-//     for (let j = 0; j < array_2.length; j++) {
-//       if (array_1[i] === array_2[j]) {
-//         flag = false;
-//       }
-//     }
-//     if (flag) {
-//       arrayResultante.push(array_1[i]);
-//     }
-//   }
-//   return arrayResultante;
-// }
+  for (let i = 0; i < array.length; i++) {
+    flag = true;
+    for (let j = i; j < array.length; j++) {
+      if (i !== j && array[i] === array[j]) {
+        flag = false;
+      }
+    }
+    if (flag) {
+      arrayElementosUnicos.push(array[i]);
+    }
+  }
+  return arrayElementosUnicos;
+}
 
-// function quitarElementosDuplicados(array) {
-//   let arrayFiltrado = [];
+function diferenciaSimetrica(array_1, array_2) {
+  let arrayComparado_1_con_2 = [];
+  let arrayComparado_2_con_1 = [];
+  let arrayResultanteOrdenado = [];
 
-//   for (let i = 0; i < array.length; i++) {
-//     flag = true;
+  //Primero se eliminan los elementos duplicados en cada arreglo por separado
+  //Luego se obtienen los elementos únicos del primer arreglo (al compararlo con el segundo) y los elementos únicos del segundo arreglo (al compararlo con el primero).
+  //Finalmente los arreglos generados se concatenan y ordenan de menor a mayor
 
-//     for (let j = i; j < array.length; j++) {
-//       if (i !== j && array[i] === array[j]) {
-//         flag = false;
-//       }
-//     }
+  array_1 = quitarElementosDuplicados(array_1);
+  array_2 = quitarElementosDuplicados(array_2);
 
-//     if (flag) {
-//       arrayFiltrado.push(array[i]);
-//     }
-//   }
-//   return arrayFiltrado;
-// }
+  arrayComparado_1_con_2 = comparar(array_1, array_2);
+  arrayComparado_2_con_1 = comparar(array_2, array_1);
 
-// function diferenciaSimetrica(array_1, array_2) {
-//   let arrayComparado_1 = [];
-//   let arrayComparado_2 = [];
+  arrayResultanteOrdenado = arrayComparado_1_con_2.concat(arrayComparado_2_con_1).sort();
 
-//   array_1 = quitarElementosDuplicados(array_1);
-//   array_2 = quitarElementosDuplicados(array_2);
+  return arrayResultanteOrdenado;
+}
 
-//   arrayComparado_1 = comparar(array_1, array_2);
-//   arrayComparado_2 = comparar(array_2, array_1);
+function sym() {
+  let arrayResultante = arguments[0];
 
-//   return arrayComparado_1.concat(arrayComparado_2);
-// }
+  for (let i = 1; i < arguments.length; i++) {
+    arrayResultante = diferenciaSimetrica(arrayResultante, arguments[i]);
+  }
+  return arrayResultante;
+}
 
-// function sym() {
-//   let arrayResultante = [];
+//************ COMPROBACIONES ************//
+console.log("Problem 4: Find the Symmetric Difference");
 
-//   for (let i = 0; i < arguments.length; i++) {
-//     arrayResultante = diferenciaSimetrica(arrayResultante, arguments[i]);
-//   }
-//   return arrayResultante;
-// }
+let arrayResultado = [];
+console.log("Comprobaciones: ");
 
-// //Comprobaciones
+arrayResultado = sym([1, 2, 3], [2, 3, 4]);
+console.log("sym([1, 2, 3], [2, 3, 4]) should return [1, 4]: ", arrayResultado);
 
-// let arrayResultado = [];
+arrayResultado = sym([1, 2, 3], [2, 3, 4], [2, 3]);
+console.log(
+  "sym([1, 2, 3], [2, 3, 4], [2, 3]) should return [1, 2, 3, 4]: ",
+  arrayResultado
+);
 
-// document.write("Comprobaciones: ", "<br><br>");
+arrayResultado = sym([1, 2, 3], [5, 2, 1, 4]);
+console.log(
+  "sym([1, 2, 3], [5, 2, 1, 4]) should return [3, 4, 5]: ",
+  arrayResultado
+);
 
-// arrayResultado = sym([1, 2, 5]);
-// document.write(
-//   "sym([1, 2, 5]) should return [1, 2, 5]: ",
-//   "<br>",
-//   arrayResultado,
-//   "<br><br>"
-// );
+arrayResultado = sym([1, 2, 3, 3], [5, 2, 1, 4]);
+console.log(
+  "sym([1, 2, 3, 3], [5, 2, 1, 4]) should return [3, 4, 5]: ",
+  arrayResultado
+);
 
-// arrayResultado = sym([1, 2, 3], [5, 2, 1, 4]);
-// document.write(
-//   "sym([1, 2, 3], [5, 2, 1, 4]) should return [3, 4, 5]: ",
-//   "<br>",
-//   arrayResultado,
-//   "<br><br>"
-// );
+arrayResultado = sym([1, 2, 3], [5, 2, 1, 4, 5]);
+console.log(
+  "sym([1, 2, 3], [5, 2, 1, 4, 5]) should return [3, 4, 5]: ",
+  arrayResultado
+);
 
-// arrayResultado = sym([1, 2, 3, 3], [5, 2, 1, 4]);
-// document.write(
-//   "sym([1, 2, 3, 3], [5, 2, 1, 4]) should return [3, 4, 5]: ",
-//   "<br>",
-//   arrayResultado,
-//   "<br><br>"
-// );
+arrayResultado = sym([1, 2, 5], [2, 3, 5], [3, 4, 5]);
+console.log(
+  "sym([1, 2, 5], [2, 3, 5], [3, 4, 5]) should return [1, 4, 5]: ",
+  arrayResultado
+);
 
-// arrayResultado = sym([1, 2, 3], [5, 2, 1, 4, 5]);
-// document.write(
-//   "sym([1, 2, 3], [5, 2, 1, 4, 5]) should return [3, 4, 5].: ",
-//   "<br>",
-//   arrayResultado,
-//   "<br><br>"
-// );
+arrayResultado = sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]);
+console.log(
+  "sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]) should return [1, 4, 5].: ",
+  arrayResultado
+);
 
-// arrayResultado = sym([1, 2, 5], [2, 3, 5], [3, 4, 5]);
-// document.write(
-//   "sym([1, 2, 5], [2, 3, 5], [3, 4, 5]) should return [1, 4, 5]: ",
-//   "<br>",
-//   arrayResultado,
-//   "<br><br>"
-// );
+arrayResultado = sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3]);
+console.log(
+  "sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3]) should return [2, 3, 4, 6, 7].: ",
+  arrayResultado
+);
 
-// arrayResultado = sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]);
-// document.write(
-//   "sym([1, 1, 2, 5], [2, 2, 3, 5], [3, 4, 5, 5]) should return [1, 4, 5].: ",
-//   "<br>",
-//   arrayResultado,
-//   "<br><br>"
-// );
-
-// arrayResultado = sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3]);
-// document.write(
-//   "sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3]) should return [2, 3, 4, 6, 7].: ",
-//   "<br>",
-//   arrayResultado,
-//   "<br><br>"
-// );
-
-// arrayResultado = sym(
-//   [3, 3, 3, 2, 5],
-//   [2, 1, 5, 7],
-//   [3, 4, 6, 6],
-//   [1, 2, 3],
-//   [5, 3, 9, 8],
-//   [1]
-// );
-// document.write(
-//   "sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]) should return [1, 2, 4, 5, 6, 7, 8, 9].: ",
-//   "<br>",
-//   arrayResultado,
-//   "<br><br>"
-// );
+arrayResultado = sym(
+  [3, 3, 3, 2, 5],
+  [2, 1, 5, 7],
+  [3, 4, 6, 6],
+  [1, 2, 3],
+  [5, 3, 9, 8],
+  [1]
+);
+console.log(
+  "sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]) should return [1, 2, 4, 5, 6, 7, 8, 9].: ",
+  arrayResultado
+);
