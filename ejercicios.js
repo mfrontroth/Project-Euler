@@ -338,3 +338,157 @@
 //   "sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3], [5, 3, 9, 8], [1]) should return [1, 2, 4, 5, 6, 7, 8, 9].: ",
 //   arrayResultado
 // );
+
+//***************************************************************************************************************************************
+
+// Problem 3: Largest prime factor
+// The prime factors of 13195 are 5, 7, 13 and 29.
+// What is the largest prime factor of the number 600851475143 ?
+
+// let numero = 600851475143;
+// let array = []
+
+// for(i=0; i<=numero; i++){
+//     if(numero%i===0){
+//         numero = numero/i;
+//         array.push(i);
+//     }
+// }
+// document.write("What is the largest prime factor of the number 600851475143 ?: " + array[array.length-1]);
+
+//***************************************************************************************************************************************
+// Problem 4: Largest palindrome product
+// A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+// Find the largest palindrome made from the product of two 3-digit numbers.
+
+// function palindromo(number) {
+//   let res = 0;
+//   let temp = 0;
+//   let final = 0;
+
+//   temp = number;
+
+//   while (number > 0) {
+//     res = number % 10;
+//     number = parseInt(number / 10);
+//     final = final * 10 + res;
+//   }
+
+//   return final === temp;
+// }
+
+// let mayorPalindromo = 0;
+
+// for (let i = 999; i >= 100; i--) {
+//   for (let j = i; j >= 100; j--) {
+//     if (palindromo(i * j) && i * j > mayorPalindromo) {
+//       mayorPalindromo = i * j;
+//     }
+//   }
+// }
+
+// console.log(mayorPalindromo);
+
+//***************************************************************************************************************************************
+// Problem 5 Smallest multiple
+// 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
+
+// What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
+// let resultado = 0;
+// let contador = 0;
+// let temp = 0;
+
+// while (resultado === 0) {
+//   temp++;
+//   contador = 0;
+//   for (j = 20; j > 0; j--) {
+//     if (temp % j == 0) {
+//       contador++;
+//     } else {
+//       j = 0;
+//     }
+//     if (contador === 20) {
+//       resultado = temp;
+//     }
+//   }
+// }
+// console.log(resultado);
+
+//***************************************************************************************************************************************
+// Problem 6: Sum square difference
+// Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+
+// function sumSquareDifference(numero) {
+//   let sumaCuadrados = 0;
+//   let cuadradoSuma = 0;
+//   let suma = 0;
+
+//   for (let i = 0; i <= numero; i++) {
+//     sumaCuadrados += i * i;
+//     suma += i;
+//   }
+//   cuadradoSuma = suma * suma;
+//   return cuadradoSuma - sumaCuadrados;
+// }
+
+// console.log(sumSquareDifference(100));
+
+//***************************************************************************************************************************************
+
+// Problem 7: 10001st prime
+// By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+
+// What is the 10 001st prime number?
+
+// function primo(numero) {
+//   for (let i = 2; i < numero; i++) {
+//     if (numero % i === 0) {
+//       return false;
+//     }
+//   }
+//   return numero;
+// }
+
+// var j = 2;
+// var numerosPrimos = [];
+
+// while (numerosPrimos.length !== 10001) {
+//   if (primo(j)) {
+//     numerosPrimos.push(j);
+//   }
+//   j++;
+// }
+
+// console.log("posición: ", numerosPrimos.length);
+// console.log("numero: ", numerosPrimos.pop());
+
+
+//***************************************************************************************************************************************
+// Problem 8: Largest product in a series
+
+// The four adjacent digits in the 1000-digit number that have the greatest product are 9 × 9 × 8 × 9 = 5832.
+
+// 73167176531330624919225119674426574742355349194934
+// 96983520312774506326239578318016984801869478851843
+// 85861560789112949495459501737958331952853208805511
+// 12540698747158523863050715693290963295227443043557
+// 66896648950445244523161731856403098711121722383113
+// 62229893423380308135336276614282806444486645238749
+// 30358907296290491560440772390713810515859307960866
+// 70172427121883998797908792274921901699720888093776
+// 65727333001053367881220235421809751254540594752243
+// 52584907711670556013604839586446706324415722155397
+// 53697817977846174064955149290862569321978468622482
+// 83972241375657056057490261407972968652414535100474
+// 82166370484403199890008895243450658541227588666881
+// 16427171479924442928230863465674813919123162824586
+// 17866458359124566529476545682848912883142607690042
+// 24219022671055626321111109370544217506941658960408
+// 07198403850962455444362981230987879927244284909188
+// 84580156166097919133875499200524063689912560717606
+// 05886116467109405077541002256983155200055935729725
+// 71636269561882670428252483600823257530420752963450
+
+// Find the thirteen adjacent digits in the 1000-digit number that have the greatest product. What is the value of this product?
